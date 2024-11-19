@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="ab423ad3-b24b-4a5d-95aa-0a970905db6d" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<global-property doc:name="Global Property" doc:id="182818a9-b6fa-477b-97d8-76777a057c18" name="mule.env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="8620a5a4-5925-4f96-b1ca-604dd141a95f" file="properties/${mule.env}-properties.yaml" />
+	<flow name="prueba-hello-worldFlow" doc:id="ca6a3e90-c2c5-4638-a353-de50a406c619" >
+		<http:listener doc:name="Listener" doc:id="8d63db7d-538e-4aa5-9037-d17623209d39" config-ref="HTTP_Listener_config" path="/hello-world"/>
+		<set-payload value='#[output application/json&#10;---&#10;{&#10;	result: "Hello World"&#10;}]' doc:name="Set Payload" doc:id="3b5a1017-8749-4736-9871-bbd97f52b8ac" />
+	</flow>
+</mule>
