@@ -29,7 +29,7 @@ def log(String message)
 
 
 pipeline {
-    agent { label 'master' }
+    agent any
 
     environment {
         ANYPOINT = credentials('ANYPOINT_PLATFORM_CREDENTIALS')
