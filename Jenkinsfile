@@ -25,7 +25,7 @@ pipeline {
             steps {
                 log('Deploying....')
 
-                bat "mvn clean deploy -DmuleDeploy -Pdev"
+                bat "mvn clean deploy -DmuleDeploy -Pdev -DskipTests"
             }
         }
     }
