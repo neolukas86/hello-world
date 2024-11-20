@@ -54,7 +54,7 @@ pipeline {
 //                    log('Cargado maven settings.xml')
 
                     bat "mvn clean deploy -DmuleDeploy -Pdev -DskipTests"
-                }               
+//                }               
             }
         }
     }
