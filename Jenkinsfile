@@ -29,7 +29,7 @@ pipeline {
                     // We recommend to define Maven settings.xml globally at the folder level using
                     // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
                     // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
-                    mavenSettingsConfig: 'my-maven-settings' // (3)
+                    mavenSettingsConfig: '0a2fb096-b75c-4c97-ac06-c1d16e913ccf' // (3)
                 ) {
                     // Run the maven build
                                         
