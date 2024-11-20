@@ -7,12 +7,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Build and Test') {
+        stage('Build') {
             steps {
-                log('Building and Testing....')
-                log('dtd.anypoint.platform.client_id: ' + ${dtd.anypoint.platform.client_id})
+                log('Building....')
                 
-                bat "mvn clean install"
+                bat "mvn clean install -DskipTests"
+            }
+        }
+        stage('Test') {
+            steps {
+                log('Testing....')
+                
+                bat "mvn test"
             }
         }
         stage('Deploy') {
