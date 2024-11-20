@@ -20,7 +20,7 @@ pipeline {
 
                 configFileProvider([configFile(fileId: '0a2fb096-b75c-4c97-ac06-c1d16e913ccf', variable: 'maven')]) {
                     log('Cargando File Provider...')
-                    log(${env.maven.servers})
+                    log('${env.maven.servers}')
                     bat "mvn test"
                     log('End File Provider!')
                 }                
