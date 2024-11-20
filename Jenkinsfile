@@ -11,6 +11,7 @@ pipeline {
             steps {
                 log('Building an testing...')
 
+/*
                 withMaven(
                     // Maven installation declared in the Jenkins "Global Tool Configuration"
                     maven: 'maven-3', // (1)
@@ -22,18 +23,20 @@ pipeline {
                     // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
                     mavenSettingsConfig: '0a2fb096-b75c-4c97-ac06-c1d16e913ccf' // (3)
                 ) {
+*/
                     // Run the maven build
                                         
-                    log('Cargado maven settings.xml')
+//                    log('Cargado maven settings.xml')
 
                     bat "mvn clean install"
-                }
+//                }
             }
         }
         stage('Deploy') {
             steps {
                 log('Deploying to Cloudhub 2.0....')
 
+/*
                 withMaven(
                     // Maven installation declared in the Jenkins "Global Tool Configuration"
                     maven: 'maven-3', // (1)
@@ -45,9 +48,10 @@ pipeline {
                     // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
                     mavenSettingsConfig: '0a2fb096-b75c-4c97-ac06-c1d16e913ccf' // (3)
                 ) {
+*/                
                     // Run the maven build
                                         
-                    log('Cargado maven settings.xml')
+//                    log('Cargado maven settings.xml')
 
                     bat "mvn clean deploy -DmuleDeploy -Pdev -DskipTests"
                 }               
