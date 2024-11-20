@@ -34,8 +34,7 @@ pipeline {
                 
                 log('Cargado maven settings.xml')
 
-                bat "mvn test"
-                }                
+                bat "mvn test"                                
             }
         }
         stage('Deploy') {
