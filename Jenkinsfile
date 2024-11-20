@@ -30,11 +30,13 @@ pipeline {
                     // navigating to the folder configuration in the section "Pipeline Maven Configuration / Override global Maven configuration"
                     // or globally to the entire master navigating to  "Manage Jenkins / Global Tools Configuration"
                     mavenSettingsConfig: 'my-maven-settings' // (3)
-                ) 
-                
-                log('Cargado maven settings.xml')
+                ) {
+                    // Run the maven build
+                                        
+                    log('Cargado maven settings.xml')
 
-                bat "mvn test"                                
+                    bat "mvn test"                                
+                }
             }
         }
         stage('Deploy') {
